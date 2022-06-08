@@ -10,8 +10,8 @@ namespace ePrimjer.Infrastracture.BaseRepository
 {
     public abstract class BaseRepository<TEntity, TKey> : IBaseRepository<TEntity, TKey> where TEntity : class
     {
-        protected DatabaseContext _dbcontext;
-        protected DbSet<TEntity> _dbset;
+        protected readonly DatabaseContext _dbcontext;
+        protected readonly DbSet<TEntity> _dbset;
 
         public BaseRepository(DatabaseContext dbc)
         {

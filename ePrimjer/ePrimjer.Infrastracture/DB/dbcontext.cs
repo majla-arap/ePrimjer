@@ -10,15 +10,16 @@ namespace ePrimjer.Infrastracture
 {
     public partial class DatabaseContext
     {
-     public void Seed(ModelBuilder modelBuilder)
+     public void Seed(ModelBuilder std)
         {
-            var student = modelBuilder.Entity<Student>().HasData(new Student
+
+           std.Entity<Student>().HasData(new Student
             {
                 Id = 1,
                 FirstName = "admin",
                 LastName = "admin",
                 indexNumber = "IB190010",
-                BirthDate = DateTime.Now,
+                BirthDate = DateTime.UtcNow,
                 IsDeleted = false
             }) ;
         }

@@ -1,4 +1,7 @@
+using ePrimjer.Core;
 using ePrimjer.Infrastracture;
+using ePrimjer.Infrastracture.UnitOfWork;
+using ePrimjer.Service.StudentServices;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DatabaseContext>(options => options.UseNpgsql(connectionString));
+
+builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork<StudentRepository>>();
 
 var app = builder.Build();
 

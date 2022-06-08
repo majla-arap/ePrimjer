@@ -21,9 +21,9 @@ namespace ePrimjer.Infrastracture
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
             Seed(modelBuilder);
             base.OnModelCreating(modelBuilder);
+            
         }
         
         public override int SaveChanges()
@@ -43,10 +43,10 @@ namespace ePrimjer.Infrastracture
 
                 if (entityEntry.State == EntityState.Added)
                 {
-                    ((BaseEntity)entityEntry.Entity).CreatedAt = DateTime.Now;
+                    ((BaseEntity)entityEntry.Entity).CreatedAt = DateTime.UtcNow;
                 }
                 else if (entityEntry.State == EntityState.Modified)
-                    ((BaseEntity)entityEntry.Entity).ModifiedAt = DateTime.Now;
+                    ((BaseEntity)entityEntry.Entity).ModifiedAt = DateTime.UtcNow;
             }
 
         }

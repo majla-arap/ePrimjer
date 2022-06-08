@@ -2,20 +2,24 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
+using ePrimjer.Infrastracture.UnitOfWork;
+
 namespace ePrimjer.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+    
+        private readonly IUnitOfWork _unitOfWork;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IUnitOfWork unitOfWork)
         {
-            _logger = logger;
+            _unitOfWork = unitOfWork;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var student = _unitOfWork._StudentRepository.GetByIndex("IB190010");
+            return View(student.ToString());
         }
 
         public IActionResult Privacy()

@@ -1,4 +1,6 @@
-﻿namespace ePrimjer.Infrastracture
+﻿using ePrimjer.Core;
+
+namespace ePrimjer.Infrastracture
 {
     public interface IStudentRepository 
     {
