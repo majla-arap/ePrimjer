@@ -19,7 +19,8 @@ namespace ePrimjer.Web.Controllers
         public IActionResult Index()
         {
             var student = _unitOfWork._StudentRepository.GetByIndex("IB190010");
-            return View(student.ToString());
+            ViewData["Student"] = student;
+            return View(student);
         }
 
         public IActionResult Privacy()

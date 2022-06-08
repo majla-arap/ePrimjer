@@ -5,14 +5,17 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model StudentDto
+@{
+    var student = ViewData["Student"] as StudentDto;   
+}  
+
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <h1 class="display-4">model.IndexNumber</h1>
-    <h1 class="display-4">model.FirstName</h1>
-    <h1 class="display-4">model.LastName</h1>
-    <h1 class="display-4">model.BirthDate</h1>
+    <h1 class="display-4">@student.indexNumber</h1>
+    <h1 class="display-4">@student.FirstName</h1>
+    <h1 class="display-4">@student.LastName</h1>
+    <h1 class="display-4">@student.BirthDate</h1>
 
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
