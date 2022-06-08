@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="BaseServies\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ePrimjer.Infrastracture\ePrimjer.Infrastracture.csproj" />
+  </ItemGroup>
+
 </Project>
