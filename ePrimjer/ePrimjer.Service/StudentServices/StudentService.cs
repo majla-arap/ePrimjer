@@ -1,6 +1,7 @@
 ﻿using ePrimjer.Core;
 using ePrimjer.Infrastracture;
 using ePrimjer.Infrastracture.BaseRepository;
+using ePrimjer.Infrastracture.UnitOfWork;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +12,15 @@ namespace ePrimjer.Service.StudentServices
 {
     public class StudentService : IStudentService
     {
-        IStudentRepository _studentRepository;
-        public StudentService(IStudentRepository studentRepository)
+        UnitOfWork _unitOfWork;
+        public StudentService(IUnitOfWork unitOfWork)
         {
-            _studentRepository = studentRepository;
+            _unitOfWork = (UnitOfWork)unitOfWork;
         }
 
         public StudentDto GetStudentByName(string name)
         {
-            return _studentRepository.GetByIndex(name);
+            return _unitOfWork._StudentRepository.GetByIndex(name);
         }
     }
 }

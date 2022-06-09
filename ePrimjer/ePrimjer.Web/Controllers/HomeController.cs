@@ -3,22 +3,23 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 using ePrimjer.Infrastracture.UnitOfWork;
+using ePrimjer.Service.StudentServices;
 
 namespace ePrimjer.Web.Controllers
 {
     public class HomeController : Controller
     {
     
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IStudentService _student;
 
-        public HomeController(IUnitOfWork unitOfWork)
+        public HomeController(IStudentService student)
         {
-            _unitOfWork = unitOfWork;
+            _student = student;
         }
 
         public IActionResult Index()
         {
-            var student = _unitOfWork._StudentRepository.GetByIndex("IB190010");
+            var student = _student.GetStudentByName("IB190010");
             ViewData["Student"] = student;
             return View(student);
         }

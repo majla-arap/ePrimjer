@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ePrimjer.Infrastracture.UnitOfWork
 {
 
-    public class UnitOfWork<TEntity> : IUnitOfWork where TEntity : class
+    public class UnitOfWork : IUnitOfWork 
     {
         protected DatabaseContext _db;
        public IStudentRepository _StudentRepository  { get; }
